@@ -10,7 +10,7 @@
 
 <script>
 import Header from '@/components/Header'
-import { getAllData } from '@/assets/api.js'
+import { getTheme } from '@/assets/api'
 export default {
   name: 'App',
 
@@ -24,7 +24,17 @@ export default {
   }),
   async created(){
     
-    [this.status, this.$store.state.analysisData] = await getAllData('생일')
+    
+    if (!this.themeList){
+      const [success, themes] = await getTheme()
+      if (success) {
+          this.status = 1;
+          this.$store.state.themeList = themes;
+      } else {
+          this.status = -1;
+      }
+      console.log('api')
+    }
   },
   async mounted(){
   },

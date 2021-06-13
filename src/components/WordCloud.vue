@@ -1,8 +1,8 @@
 <template>
     <vue-word-cloud
     style="
-        height: 400px;
-        width: 300px;
+        height: 487px;
+        width: 100%;
     "
     :words="words"
     :color="([, weight]) => weight > 1000 ? 'DeepPink' : weight > 800 ? 'RoyalBlue' : 'Indigo'"

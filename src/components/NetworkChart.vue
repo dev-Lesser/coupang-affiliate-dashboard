@@ -29,8 +29,8 @@ export default {
     computed:{
         options(){
             return{
-                force: 450,
-                size:{ w:600, h:600},
+                force: 250,
+                size:{ h:480},
                 nodeSize: this.nodeSize,
                 nodeLabels: true,
                 linkLabels: true,

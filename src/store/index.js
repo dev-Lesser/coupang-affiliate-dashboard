@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     loading: false,
     analysisData: null,
+    themeList: null,
   },
   mutations: {},
   actions: {},

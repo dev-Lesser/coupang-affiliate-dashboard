@@ -5,12 +5,12 @@
     
     <v-layout style="width:100%;">
     <v-card-actions>
-        <v-card-titile> <v-btn small dark>#생일</v-btn> </v-card-titile>
+        <v-card-title> <v-btn small dark>#생일</v-btn> </v-card-title>
         <v-spacer />
         <v-card-subtitle>2021-06-04 부터 2021-06-11 분석 추천 상품</v-card-subtitle>
     </v-card-actions>
     </v-layout>
-    <v-flex  xs12 sm6 md3 v-for="item,key in items" :key="key">
+    <v-flex  xs12 sm6 md2 v-for="item,key in items" :key="key">
         <v-card >
             <v-img 
             :src="item.img"
@@ -18,30 +18,31 @@
             />
             <v-divider />
             <v-card-subtitle class="item-label">{{item.label}}</v-card-subtitle>
+            <v-divider />
             <v-card-subtitle>
-                관련키워드
-                <v-btn small color="" dark >{{hashtags[key]}}</v-btn>
+                
+                <v-chip class="ma-1" small outlined>{{hashtags[key]}}</v-chip>
+                <v-spacer></v-spacer>
+                <v-chip class="ma-1" outlined small>{{item.price}}원</v-chip>
             </v-card-subtitle>
             <v-divider />
-            <v-card-actions>
-                <v-card-subtitle><v-chip small>{{item.price}}원</v-chip></v-card-subtitle>
+            <v-card-actions style="display:flex;">
+                
                 <v-spacer />
-                <v-card-subtitle>
-                    
-                        
-                    <v-btn small color="indigo" dark :href="item.link">
-                        <v-icon small class="mr-3">mdi-shopping</v-icon>쇼핑하기
+                <v-card-actions >
+                    <v-btn small color="indigo" dark outlined :href="item.link">
+                        <v-icon small class="mr-3" >mdi-shopping</v-icon>구매하기
                     </v-btn>
                         
-                </v-card-subtitle>
+                </v-card-actions>
             </v-card-actions>
             
         </v-card>
     </v-flex>
     <v-card-actions style="display:flex;">
-        <div></div>
+        <div>d</div>
         <v-spacer />
-        <v-card-subtitle>파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있음</v-card-subtitle>
+        <v-card-subtitle>**파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있음</v-card-subtitle>
     </v-card-actions>
 </v-layout>
 </v-card>
