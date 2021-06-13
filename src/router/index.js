@@ -28,6 +28,7 @@ const routes = [
       name: 'about',
       component: about
     },
+  
     
 ];
 
