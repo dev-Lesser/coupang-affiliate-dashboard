@@ -1,30 +1,30 @@
 <template>
-    <v-container fluid>
-        <!-- <v-img :src="img"></v-img> -->
+    <v-container fluid grid-list-md>
+        
+        
+        <v-layout wrap style="display:flex;justify-content:center;">
+            <v-flex xs12 sm10 md10 >
+                <recommend-item />
+            </v-flex>
+        </v-layout>
+
         <v-layout wrap>
-            
-            <v-flex xs12 sm6 md6>
-                <v-card>
-                    <network-chart :netNodes="netNodes" :netLinks="netLinks" />
-                </v-card>
-            </v-flex>
-            <v-flex xs12 sm6 md6>
-                <v-card>
-                    <word-cloud :words="result" />
-                </v-card>
-            </v-flex>
+
         </v-layout>
     </v-container>
 </template>
 
 <script>
 import homeImg from '@/assets/home.jpg'
-import NetworkChart from '@/components/NetworkChart'
-import WordCloud from '@/components/WordCloud'
+// import NetworkChart from '@/components/NetworkChart'
+// import WordCloud from '@/components/WordCloud'
+import RecommendItem from '@/components/RecommendItem'
+
 export default {
     components:{
-        NetworkChart,
-        WordCloud,
+        // NetworkChart,
+        // WordCloud,
+        RecommendItem
     },
     
   
