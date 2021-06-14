@@ -1,5 +1,5 @@
 <template>
-<router-link  class="item-card" target="_blank" :to="item.link" replace>
+<a  class="item-card" target="_blank" :href="item.link" replace>
     <v-card >
             <v-img 
             :src="item.img"
@@ -19,7 +19,7 @@
                 
                 <v-spacer />
                 <v-card-actions >
-                    <v-btn small color="indigo" dark outlined :href="item.link">
+                    <v-btn small color="indigo" dark outlined :href="item.link" target="_blank" >
                         <v-icon small class="mr-3" >mdi-shopping</v-icon>구매하기
                     </v-btn>
                         
@@ -27,7 +27,7 @@
             </v-card-actions>
             
         </v-card>
-</router-link>
+</a>
 </template>
 <script>
 export default {
