@@ -81,12 +81,6 @@
 </template>
 
 <script>
-import weddingImg from '@/assets/wedding.jpg'
-import babyImg from '@/assets/baby.jpg'
-import girlImg from '@/assets/girlfriend.jpg'
-import birthdayImg from '@/assets/present.jpg'
-import homeImg from '@/assets/home_present.jpg'
-import familyImg from '@/assets/family.jpg'
     export default {
         setup() {
         },
@@ -100,18 +94,22 @@ import familyImg from '@/assets/family.jpg'
                 maxDate: new Date().toISOString().substr(0, 10),
                 minDate: new Date(2021,4,29).toISOString().substr(0, 10),
                 menu: false,
-                imageList: [weddingImg,familyImg,birthdayImg,girlImg,homeImg,babyImg],
-                selectedDate: null,
                 
             }
         },
         async created(){
-            this.selectedDate = this.date
+            
         },
 
         computed:{
+            imageList(){
+                return this.$store.state.imgList;
+            },
             themeList(){
                 return this.$store.state.themeList;
+            },
+            selectedDate(){
+                return this.$store.state.selectedDate;
             }
         },
         methods:{
@@ -120,7 +118,7 @@ import familyImg from '@/assets/family.jpg'
             },
             saveDate(val){
                 // this.date=val;
-                this.selectedDate = val;
+                this.$store.state.selectedDate = val;
 
                 this.menu = false;
 

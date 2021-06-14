@@ -15,9 +15,9 @@
                     <v-card-title>분석 데이터 테마</v-card-title>
                     <v-divider/>
                     
-                    <v-layout wrap style="padding-left:50px;padding-right:50px;display:flex;justify-content:center;align-items:center;">
+                    <v-layout wrap style="display:flex;justify-content:center;align-items:center;">
                         <v-flex xs12 sm6 md3 v-for="i,key in info" :key="key">
-                           <about-info :img="i.img" :title="i.title" :hashtags="i.tags"/>
+                           <about-info :img="imgList[key]" :title="i.title" :hashtags="i.tags"/>
                         </v-flex>
                     </v-layout>
                     <v-divider />
@@ -28,9 +28,7 @@
             </v-flex>
         </v-layout>
 
-        <v-layout wrap>
-
-        </v-layout>
+      
     </v-container>
 </template>
 
@@ -43,7 +41,18 @@ export default {
     },
     data(){
         return{
-            info: [{title:'집들이',img:'@/assest/home_present.jpg',tags:['집들이']}]
+            info: [
+                {title:'결혼',tags:['결혼','축하']},
+                {title:'부모',tags:['부모님','효도']},
+                {title:'생일',tags:['생일선물']},
+                {title:'여자친구',tags:['여자친구','커플']},
+                {title:'집들이',tags:['집들이']},
+                {title:'출산',tags:['아기']}]
+        }
+    },
+    computed:{
+        imgList(){
+            return this.$store.state.imgList;
         }
     }
 }

@@ -8,6 +8,8 @@ export default new Vuex.Store({
     loading: false,
     analysisData: null,
     themeList: null,
+    imgList: [],
+    selectedDate: new Date().toISOString().substr(0, 10),
   },
   mutations: {},
   actions: {},
