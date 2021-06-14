@@ -19,10 +19,10 @@ export const save_ip = async () => {
     return [false, null]
 }
 
-export const getAllData = async (theme) => {
+export const getAllData = async (theme, date) => {
     // var credentials = btoa(username + ':' + password);
     // var basicAuth = 'Basic ' + credentials;
-    const url = BASE_URL + `data?theme=${theme}`
+    const url = BASE_URL + `data?theme=${theme}&date=${date}`
     const res = await axios.get(url);
     if (res.status==200){
       return [true, res.data]

@@ -4,7 +4,6 @@
             <v-card-actions>
                 <v-spacer />
             <v-flex xs12 sm6 md3>
-                <v-card class="px-5 pt-3">
             <v-menu
                 ref="menu"
                 v-model="menu"
@@ -44,13 +43,12 @@
                     <v-btn
                         text
                         color="primary"
-                        @click="$refs.menu.save(date)"
+                        @click="saveDate(date)"
                     >
                         확인
                     </v-btn>
                 </v-date-picker>
             </v-menu>
-            </v-card>
             </v-flex>
             </v-card-actions>
         </v-layout>
@@ -61,14 +59,13 @@
         <v-divider/>
         <v-layout wrap style="display:flex;">
             <v-flex xs12 sm6 md3 v-for="i,key in themeList" :key="i.theme">
-                <router-link :to="defaultRoute+key+'?theme='+i.theme">
+                <router-link :to="defaultRoute+key+`?theme=${i.theme}&date=${selectedDate}`" >
                     <v-card class="ma-3">
                         <v-img :src="imageList[key]" :aspect-ratio="3"/>
                         <v-layout wrap >
                             <div>
                                 <v-card-title>{{i.theme}}</v-card-title>
-                                <v-card-subtitle>{{date}} </v-card-subtitle>
-                                <v-card-subtitle>쇼핑 분석보고서</v-card-subtitle>
+                                <v-card-subtitle>{{date}} 쇼핑 분석보고서</v-card-subtitle>
                             </div>
                         </v-layout>
                     </v-card>
@@ -98,20 +95,26 @@ import familyImg from '@/assets/family.jpg'
                 result: null,
                 date: new Date().toISOString().substr(0, 10),
                 menu: false,
-                imageList: [weddingImg,familyImg,birthdayImg,girlImg,birthdayImg,homeImg,babyImg]
-
-
+                imageList: [weddingImg,familyImg,birthdayImg,girlImg,birthdayImg,homeImg,babyImg],
+                selectedDate: null,
                 
             }
         },
         async created(){
-            
+            this.selectedDate = this.date
         },
-        async mounted(){
-        },
+
         computed:{
             themeList(){
                 return this.$store.state.themeList;
+            }
+        },
+        methods:{
+            saveDate(val){
+                this.date=val;
+                this.selectedDate = val;
+                this.menu = false;
+
             }
         }
     }

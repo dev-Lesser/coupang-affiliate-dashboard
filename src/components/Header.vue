@@ -54,9 +54,7 @@ export default {
               {tab:'홈',route:"/"}, 
               {tab:'About',route:"/about"},
               {tab:'분석보고서',route:"/report"}, 
-              {tab: '전자제품', route:"/category"},
-              {tab: '생활용품', route:"/product1"},
-              {tab: '주방용품',route:"/product2"},
+              {tab: '카테고리', route:"/category"},
               {tab: '렛서의 일기',route:"/diary"},
               ],
     }

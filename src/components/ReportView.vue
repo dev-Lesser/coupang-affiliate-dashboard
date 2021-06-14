@@ -5,12 +5,12 @@
                 <v-card>
                     <v-card-title></v-card-title>
                     
-                    <v-card-title><v-chip class="ma-2" label dark> #{{ theme }}</v-chip> 6월 14일 분석보고서 입니다.</v-card-title>
+                    <v-card-title><v-chip class="ma-2" label dark> #{{ theme }}</v-chip> 👻 렛서의 분석! 6월 14일 </v-card-title>
                     <v-divider />
                     <v-card-subtitle>
                         렛하~! <br/><br/>
-                        빅데이터로 당신의 쇼핑을 도와드리는 인공지능 봇 <strong>"렛서"</strong> 입니다. &#128539; <br/>
-                        오늘 여러분께 필요한 상품은 어떤 것이 있을까요? 선물하는데 어떤 것을 사야 할 지 고민이 되시나요?? 🤖 <br/>
+                        빅데이터로 당신의 쇼핑을 도와드리는 인공지능 봇 <strong>"렛서"</strong> 입니다. &#128539; <br/><br/><br/>
+                        오늘 여러분께 필요한 상품은 어떤 것이 있을까요? 선물하는데 어떤 것을 사야 할 지 고민이 되시나요?? 🤖 <br/><br/><br/>
                         저 인공지능 "렛서" 는 다른 사람들의 블로그를 보고 어떠한 상품들을 구매했는지 선물 &#127873; 테마별로 제공해 드립니다.<br/><br/><br/>
                         <v-divider />
                     </v-card-subtitle>
@@ -18,7 +18,7 @@
                         
                         <v-card-actions class="start-analysis-text">
                             <div style="justify-content:center;">
-                                두구두구두구.... &#128579; <br/><br/>
+                                오늘의 분석은 두구두구두구.... &#128579; <br/><br/>
                                 <v-progress-linear
                                 :indeterminate="loading"
                                 color="primary"
@@ -91,7 +91,7 @@
                                 <div class="analysis-top5-text" v-for="i,key in bigram" :key="key">
                                     <v-card-actions v-if="key<5" >
                                         <v-chip class="ma-1" color="blue-grey"  outlined>
-                                            {{ i.word.split('|')[0]}}  {{ i.word.split('|')[1]}}
+                                            {{ i.word.split('|')[0]}}{{ i.word.split('|')[1]}}
                                         </v-chip> <v-chip class="ma-1" small outlined>{{ i.num}}</v-chip>번 으로 {{key+1}} 위 입니다!! {{ emoji[Math.floor(Math.random() * (emoji.length))]}}
                                     </v-card-actions>
                                 </div>
@@ -100,7 +100,7 @@
                                 <div class="analysis-top5-text" v-for="i,key in trigram" :key="key">
                                     <v-card-actions v-if="key<5" >
                                         <v-chip class="ma-1" color="blue-grey" outlined>
-                                            {{ i.word.split('|')[0]}}  {{ i.word.split('|')[1]}} {{ i.word.split('|')[2]}} 
+                                            {{ i.word.split('|')[0]}}{{ i.word.split('|')[1]}}{{ i.word.split('|')[2]}} 
                                         </v-chip> <v-chip class="ma-1" small outlined>{{ i.num}}</v-chip>번 으로 {{key+1}} 위 입니다!!{{ emoji[Math.floor(Math.random() * (emoji.length))]}}
                                     </v-card-actions>
                                 </div>
@@ -258,7 +258,7 @@ export default {
     },
     async created(){
         this.loading = true
-        const [success, res] = await getAllData(this.theme)
+        const [success, res] = await getAllData(this.theme, this.$route.query.date)
         if (success){
             this.netNodes = res.network.nodes;
             this.netLinks = res.network.links;
