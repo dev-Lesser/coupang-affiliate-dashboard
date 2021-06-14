@@ -4,7 +4,7 @@
             <v-card class="ma-3">
                 <v-img 
                 :aspect-ratio="5" 
-                src="https://thumbnail12.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/bb6b/3e094589a665faeb33973ee61e28a331a332325c837242edcb42b5edc213.jpg" />
+                :src="presentImg" />
                 <v-card-subtitle>
                     직접 검색을 해보세요! ⛵
                 
@@ -20,8 +20,13 @@
     </v-layout>
 </template>
 <script>
+import presentImg from '@/assets/present.jpg'
 export default {
-    setup() {
+    
+    data() {
+        return {
+            presentImg: presentImg,
+        }
         
     },
     props:{
