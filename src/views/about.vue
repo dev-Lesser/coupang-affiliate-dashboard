@@ -16,64 +16,9 @@
                     <v-divider/>
                     
                     <v-layout wrap style="padding-left:50px;padding-right:50px;display:flex;justify-content:center;align-items:center;">
-                        <v-flex xs12 sm6 md3>
-                            <v-card>
-                                <v-img src="@/assets/home_present.jpg" />
-                                <v-card-subtitle><v-chip label color="indigo" small outlined>#집들이</v-chip></v-card-subtitle>
-                            </v-card>
+                        <v-flex xs12 sm6 md3 v-for="i,key in info" :key="key">
+                           <about-info :img="i.img" :title="i.title" :hashtags="i.tags"/>
                         </v-flex>
-                        <v-flex xs12 sm6 md3>
-                            <v-card>
-                                <v-img src="@/assets/family.jpg" />
-                                <v-card-subtitle>
-                                    <v-chip label color="indigo" small outlined>#부모님</v-chip>
-                                    <v-chip label color="indigo" small outlined>#효도</v-chip>
-                                </v-card-subtitle>
-                            </v-card>
-                        </v-flex>
-                        <v-flex xs12 sm6 md3>
-                            <v-card>
-                                <v-img src="@/assets/present.jpg" />
-                                <v-card-subtitle>
-                                    <v-chip label color="indigo" small outlined>#생일</v-chip>
-                                    <v-chip label color="indigo" small outlined>#생일선물</v-chip>
-                                </v-card-subtitle>
-                            </v-card>
-                        </v-flex>
-                        <v-flex xs12 sm6 md3>
-                            <v-card>
-                                <v-img src="@/assets/girlfriend.jpg" />
-                                <v-card-subtitle>
-                                    <v-chip label color="indigo" small outlined>#여자친구</v-chip>
-                                    <v-chip label color="indigo" small outlined>#커플</v-chip>
-                                </v-card-subtitle>
-                            </v-card>
-                        </v-flex>
-                        <v-flex xs12 sm6 md3>
-                            <v-card>
-                                <v-img src="@/assets/present.jpg" />
-                                <v-card-subtitle><v-chip label color="indigo" small outlined>#직장</v-chip></v-card-subtitle>
-                            </v-card>
-                        </v-flex>
-                        <v-flex xs12 sm6 md3>
-                            <v-card>
-                                <v-img src="@/assets/wedding.jpg" />
-                                <v-card-subtitle>
-                                    <v-chip label color="indigo" small outlined>#결혼</v-chip>
-                                    <v-chip label color="indigo" small outlined>#축하선물</v-chip>
-                                </v-card-subtitle>
-                            </v-card>
-                        </v-flex>
-                        <v-flex xs12 sm6 md3>
-                            <v-card>
-                                <v-img src="@/assets/baby.jpg" />
-                                <v-card-subtitle>
-                                    <v-chip label color="indigo" small outlined>#출산</v-chip>
-                                    <v-chip label color="indigo" small outlined>#아기용품</v-chip>
-                                </v-card-subtitle>
-                            </v-card>
-                        </v-flex>
-                        
                     </v-layout>
                     <v-divider />
                     
@@ -88,3 +33,18 @@
         </v-layout>
     </v-container>
 </template>
+
+<script>
+import AboutInfo from '@/components/AboutInfo'
+export default {
+    
+    components:{
+        AboutInfo
+    },
+    data(){
+        return{
+            info: [{title:'집들이',img:'@/assest/home_present.jpg',tags:['집들이']}]
+        }
+    }
+}
+</script>

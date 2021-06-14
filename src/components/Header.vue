@@ -6,9 +6,9 @@
       :src="img"
     >
     <v-card-actions>
-    <v-card-title>빅데이터 분석 쇼핑 가이드</v-card-title>
-    <v-spacer/>
-    <v-card-subtitle class="header-sub-text">Lesser's Home</v-card-subtitle>
+    <v-card-title>렛서의 하루</v-card-title>
+    <v-spacer class="header-sub-text"/>
+    <v-card-subtitle class="header-sub-text"> 👑 빅데이터 분석 인공지능 쇼핑가이드</v-card-subtitle>
     </v-card-actions>
     <template v-slot:img="{ props }">
         <v-img
@@ -26,6 +26,7 @@
             v-for="item in tabItems"
             :key="item.tab"
             :to="item.route"
+            @click.native="scrollToTop()"
           >
             {{ item.tab }}
           </v-tab>
@@ -61,6 +62,11 @@ export default {
               {tab: '렛서의 일기',route:"/diary"},
               ],
     }
+  },
+  methods:{
+    scrollToTop() {
+        window.scrollTo(0,0);
+    },
   }
 }
 </script>
@@ -68,12 +74,11 @@ export default {
 #top-section{
   background: linear-gradient( to right, rgb(57, 36, 14, .5), rgb(35, 32, 17, .5));
 }
-.header-sub-text{
 
-}
 @media screen and (max-width: 500px) {
   .header-sub-text {
     display:none;
+    width:0px;
   }
     
 }

@@ -62,7 +62,7 @@
         <v-divider/>
         <v-layout wrap style="display:flex;">
             <v-flex xs12 sm6 md3 v-for="i,key in themeList" :key="i.theme">
-                <router-link :to="defaultRoute+key+`?theme=${i.theme}&date=${selectedDate}`" >
+                <router-link :to="defaultRoute+key+`?theme=${i.theme}&date=${selectedDate}`" @click.native="scrollToTop()">
                     <v-card class="ma-3">
                         <v-img :src="imageList[key]" :aspect-ratio="3"/>
                         <v-layout wrap >
@@ -115,6 +115,9 @@ import familyImg from '@/assets/family.jpg'
             }
         },
         methods:{
+            scrollToTop() {
+                window.scrollTo(0,0);
+            },
             saveDate(val){
                 // this.date=val;
                 this.selectedDate = val;

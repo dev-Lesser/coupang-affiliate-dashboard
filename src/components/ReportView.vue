@@ -1,7 +1,6 @@
 <template>
     <v-container fluid grid-list-md>
         <v-layout wrap style="display:flex;justify-content:center;">
-            
             <v-flex xs12 sm10 md10 >
                 <v-card>
                     <v-card-subtitle>
@@ -83,7 +82,7 @@
                         <v-card-subtitle>
                         💎💎 분석된 키워드를 바탕으로 저 "렛서"가 추천하는 상품은요~ 💎💎
                         </v-card-subtitle>
-                        <v-layout style="justify-content:center;display:flex;">
+                        <v-layout wrap style="justify-content:center;display:flex;">
                             <v-flex xs6 sm4 md2 v-for="i,key in items" :key="key">
                                 <display-item :item="i"/>
                             </v-flex>
@@ -282,6 +281,7 @@ export default {
         }
     },
     async created(){
+
         this.loading = true
         const [success, res] = await getAllData(this.theme, this.$route.query.date)
         if (success){
