@@ -1,14 +1,25 @@
 <template>
     <v-container fluid grid-list-md>
         <v-layout wrap style="display:flex;justify-content:center;">
+            
             <v-flex xs12 sm10 md10 >
                 <v-card>
-                    <v-card-title></v-card-title>
-                    
-                    <v-card-title><v-chip class="ma-2" label dark> #{{ theme }}</v-chip> 👻 렛서의 분석! 6월 14일 </v-card-title>
+                    <v-card-subtitle>
+                    <v-btn :to="beforePage" small dark><v-icon small>mdi-arrow-left</v-icon>목록으로</v-btn>
+                    </v-card-subtitle>
+                    <v-card-actions>
+                        
+                        <v-card-title>
+                            <v-chip class="ma-2" label dark> #{{ theme }}</v-chip> 👻 렛서의 분석! 
+                            
+                        </v-card-title>
+                        <v-spacer/>
+                        <v-card-subtitle>작성일자 : {{$route.query.date}}</v-card-subtitle>
+                    </v-card-actions>
                     <v-divider />
                     <v-card-subtitle>
                         렛하~! <br/><br/>
+                        오늘은  {{$route.query.date}} 입니다!!<br/><br/>
                         빅데이터로 당신의 쇼핑을 도와드리는 인공지능 봇 <strong>"렛서"</strong> 입니다. &#128539; <br/><br/><br/>
                         오늘 여러분께 필요한 상품은 어떤 것이 있을까요? 선물하는데 어떤 것을 사야 할 지 고민이 되시나요?? 🤖 <br/><br/><br/>
                         저 인공지능 "렛서" 는 다른 사람들의 블로그를 보고 어떠한 상품들을 구매했는지 선물 &#127873; 테마별로 제공해 드립니다.<br/><br/><br/>
@@ -175,7 +186,7 @@
                     <v-layout wrap style="display:flex;justify-content:center;">
                         <v-flex xs12 sm12 md4>
                             <v-card class="ma-3 pa-3 overflow-y-auto" height="400" max-height="400">
-                                <v-card-title>Bi-gram 키워드 결과</v-card-title>
+                                <v-card-title>이건 어떠세요? 🤖</v-card-title>
                                 <v-divider class="mb-3" />
                                 <v-card-subtitle style="display:flex;justify-content:center;" v-if="loading">
                                     <v-progress-circular
@@ -183,15 +194,17 @@
                                         color="black"
                                     ></v-progress-circular>
                                 </v-card-subtitle>
-                                <v-chip v-else v-for="i,key in bigram" :key="key" class="ma-1" small outlined>
+                                <a class="keyword-all-chips" href="https://coupa.ng/b1GAyJ" v-else target="_blank" >
+                                <v-chip v-for="i,key in bigram" :key="key" class="ma-1" small outlined>
                                     {{ i.word.split('|')[0]+i.word.split('|')[1] }}
                                 </v-chip>
+                                </a>
 
                             </v-card>
                         </v-flex>
                         <v-flex xs12 sm12 md4>
                             <v-card height="400" max-height="400" class="ma-3 pa-3 overflow-y-auto">
-                                <v-card-title>Tri-gram 키워드 결과</v-card-title>
+                                <v-card-title>다른 키워드와 조합! 😎</v-card-title>
                                 <v-divider class="mb-3" />
                                 <v-card-subtitle style="display:flex;justify-content:center;" v-if="loading">
                                     <v-progress-circular
@@ -199,9 +212,11 @@
                                         color="black"
                                     ></v-progress-circular>
                                 </v-card-subtitle>
-                                <v-chip v-else v-for="i,key in trigram" :key="key"  class="ma-1" small  outlined>
+                                <a class="keyword-all-chips" href="https://coupa.ng/b1GAyJ" v-else target="_blank" >
+                                <v-chip v-for="i,key in trigram" :key="key"  class="ma-1" small  outlined>
                                     {{ i.word.split('|')[0]+i.word.split('|')[1] +i.word.split('|')[2] }}
                                     </v-chip>
+                                </a>
                                     
                             </v-card>
                         </v-flex>
@@ -213,6 +228,14 @@
                     
                 </v-card>
             </v-flex>
+            
+        </v-layout>
+
+        <v-layout wrap style="display:contents;justify-content:end;">
+            <v-card-actions style="display:flex; ">
+                <v-spacer />
+                <div style="font-size:12px;">**파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있음</div>
+            </v-card-actions>
         </v-layout>
 
     </v-container>
@@ -240,6 +263,8 @@ export default {
             theme: this.$route.query.theme,
             netNodes: [],
             netLinks: [],
+            noData: false,
+            beforePage:'/report',
             words:[],
             bigram:[],
             trigram:[],
@@ -260,6 +285,7 @@ export default {
         this.loading = true
         const [success, res] = await getAllData(this.theme, this.$route.query.date)
         if (success){
+            this.noData=false;
             this.netNodes = res.network.nodes;
             this.netLinks = res.network.links;
             this.keyword = res.data.keyword;
@@ -277,6 +303,10 @@ export default {
             }
             this.loading= false;
             // this.words
+        }
+        else{
+            this.noData=true
+            this.loading=false;
         }
         
 
@@ -303,5 +333,9 @@ export default {
     justify-content: center;
     display: flex;
     align-items: center;
-    text-align: center;;}
+    text-align: center;
+}
+.keyword-all-chips{
+    text-decoration:none
+}
 </style>

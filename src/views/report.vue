@@ -1,8 +1,9 @@
 <template>
     <v-container fluid grid-list-md>
-        <v-layout wrap style="justify-content: end;display: contents;">
+        
+        <v-layout wrap style="justify-content: start;display: contents;">
             <v-card-actions>
-                <v-spacer />
+                
             <v-flex xs12 sm6 md3>
             <v-menu
                 ref="menu"
@@ -10,12 +11,13 @@
                 :close-on-content-click="false"
                 :return-value.sync="date"
                 transition="scale-transition"
+                min-width="290px"
+
                 offset-y
-                min-width="auto"
             >
                 <template v-slot:activator="{ on, attrs }">
                 <v-text-field
-                    v-model="date"
+                    v-model="selectedDate"
                     label="날짜를 선택해주세요"
                     prepend-icon="mdi-calendar"
                     readonly
@@ -30,7 +32,8 @@
                     locale="kr"
                     color="blue-grey darken-3"
                     outlined
-                    :max="date"
+                    :max="maxDate"
+                    :min="minDate"
                     >
                     <v-spacer></v-spacer>
                     <v-btn
@@ -53,7 +56,7 @@
             </v-card-actions>
         </v-layout>
         <v-layout>
-            <v-card-title>{{date}} 분석보고서 일람</v-card-title>
+            <v-card-title>{{selectedDate}} 분석보고서 일람</v-card-title>
             
         </v-layout>
         <v-divider/>
@@ -65,15 +68,15 @@
                         <v-layout wrap >
                             <div>
                                 <v-card-title>{{i.theme}}</v-card-title>
-                                <v-card-subtitle>{{date}} 쇼핑 분석보고서</v-card-subtitle>
+                                <v-card-subtitle><v-chip small class="ma-1" outlined >{{selectedDate}} </v-chip>키워드 분석보고서</v-card-subtitle>
                             </div>
                         </v-layout>
                     </v-card>
                 </router-link>
             </v-flex>
         </v-layout>
-        <v-layout wrap>
-        </v-layout>
+        <v-divider/>
+     
     </v-container>
 </template>
 
@@ -94,8 +97,10 @@ import familyImg from '@/assets/family.jpg'
                 status: null,
                 result: null,
                 date: new Date().toISOString().substr(0, 10),
+                maxDate: new Date().toISOString().substr(0, 10),
+                minDate: new Date(2021,4,29).toISOString().substr(0, 10),
                 menu: false,
-                imageList: [weddingImg,familyImg,birthdayImg,girlImg,birthdayImg,homeImg,babyImg],
+                imageList: [weddingImg,familyImg,birthdayImg,girlImg,homeImg,babyImg],
                 selectedDate: null,
                 
             }
@@ -111,8 +116,9 @@ import familyImg from '@/assets/family.jpg'
         },
         methods:{
             saveDate(val){
-                this.date=val;
+                // this.date=val;
                 this.selectedDate = val;
+
                 this.menu = false;
 
             }

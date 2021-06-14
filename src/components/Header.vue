@@ -5,8 +5,11 @@
       dark
       :src="img"
     >
-
+    <v-card-actions>
     <v-card-title>빅데이터 분석 쇼핑 가이드</v-card-title>
+    <v-spacer/>
+    <v-card-subtitle class="header-sub-text">Lesser's Home</v-card-subtitle>
+    </v-card-actions>
     <template v-slot:img="{ props }">
         <v-img
         v-bind="props"
@@ -64,5 +67,14 @@ export default {
 <style scoped>
 #top-section{
   background: linear-gradient( to right, rgb(57, 36, 14, .5), rgb(35, 32, 17, .5));
+}
+.header-sub-text{
+
+}
+@media screen and (max-width: 500px) {
+  .header-sub-text {
+    display:none;
+  }
+    
 }
 </style>

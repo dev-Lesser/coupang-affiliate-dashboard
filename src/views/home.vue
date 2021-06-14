@@ -10,36 +10,36 @@
                     <v-divider/>
                 </v-card>
                 <v-card class="overflow-x-auto"  style="display:flex;">
-                    <v-flex xs6 sm6 md4>
-                    <a class="event-promotion-card" href="https://coupa.ng/b1Gcaz" target="_blank" >
-                    <v-card-subtitle><v-chip label outlined>아이폰 SE/11 시리즈 빅 세일</v-chip>
-                    
-                    </v-card-subtitle>
-                    </a>
-
-                    
+                    <v-layout wrap>
+                    <v-flex xs12 sm12 md4>
+                        <a class="event-promotion-card" href="https://coupa.ng/b1Gcaz" target="_blank" >
+                        <v-card-subtitle><v-btn small outlined>아이폰 SE/11 시리즈 빅 세일</v-btn>
+                        
+                        </v-card-subtitle>
+                        </a>
                     </v-flex>
                     <v-divider/>
-                    <v-flex xs6 sm6 md4>
+                    <v-flex xs12 sm12 md4>
                     <a class="event-promotion-card" href="https://coupa.ng/b1Gctx" target="_blank" >
-                    <v-card-subtitle><v-chip label outlined>놓치면 후회하는 애플 세일</v-chip></v-card-subtitle>
+                    <v-card-subtitle><v-btn small outlined>놓치면 후회하는 애플 세일</v-btn></v-card-subtitle>
                     </a>
                     </v-flex>
-                    <v-flex xs6 sm6 md4>
+                    <v-flex xs12 sm12 md4>
                     <a class="event-promotion-card" href="https://coupa.ng/b1GcUh" target="_blank" >
-                    <v-card-subtitle><v-chip label outlined>쿠폰할인, 세일할 때 쟁여두는 번들 아이템(~6/18)</v-chip></v-card-subtitle>
+                    <v-card-subtitle><v-btn small outlined>쿠폰할인, 세일할 때 쟁여두는 번들 아이템(~6/18)</v-btn></v-card-subtitle>
                     </a>
                     </v-flex>
-                    <v-flex xs6 sm6 md4>
+                    <v-flex xs12 sm12 md4>
                     <a class="event-promotion-card" href="https://coupa.ng/b1GcYy" target="_blank" >
-                    <v-card-subtitle><v-chip label outlined>2021년 상반기 뷰티 페스티벌(~6/27)</v-chip></v-card-subtitle>
+                    <v-card-subtitle><v-btn small outlined>2021년 상반기 뷰티 페스티벌(~6/27)</v-btn></v-card-subtitle>
                     </a>
                     </v-flex>
-                    <v-flex xs6 sm6 md4>
+                    <v-flex xs12 sm12 md4>
                     <a class="event-promotion-card" href="https://coupa.ng/b1Gc3s" target="_blank" >
-                    <v-card-subtitle><v-chip label outlined>간단하게 예뻐지는 네일/패디 SALE(~6/20)</v-chip></v-card-subtitle>
+                    <v-card-subtitle><v-btn small outlined>간단하게 예뻐지는 네일/패디 SALE(~6/20)</v-btn></v-card-subtitle>
                     </a>
                     </v-flex>
+                    </v-layout>
                 </v-card>
                 
                 

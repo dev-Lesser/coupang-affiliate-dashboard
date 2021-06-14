@@ -41,21 +41,10 @@ export default {
                 {
                     author: '렛서',
                     date: '2020-06-12',
-                    title: '힘들지 않니?',
+                    title: '준비중',
                     count: 3
                 },
-                {
-                    author: '렛서',
-                    date: '2020-05-12',
-                    title: '힘들지 않a니?',
-                    count: 2
-                },
-                {
-                    author: '렛서',
-                    date: '2020-06-11',
-                    title: '힘들지 않a니?',
-                    count: 1
-                },
+              
             ]
         }
     }

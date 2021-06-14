@@ -10,7 +10,7 @@
                     <v-card-subtitle>기록 : {{ $route.query.date }}</v-card-subtitle>
                 </v-card-actions>
                 <v-divider />
-                <v-card-subtitle>안녕하세요?????</v-card-subtitle>
+                <v-card-subtitle>준비중</v-card-subtitle>
                 
             </v-card>
             </v-flex>
