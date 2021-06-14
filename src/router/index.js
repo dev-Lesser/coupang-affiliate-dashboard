@@ -4,7 +4,9 @@ import VueRouter from "vue-router";
 import home from '@/views/home'
 import report from '@/views/report'
 import reportItem from '@/components/ReportView'
+import diaryItem from '@/components/DiaryItem'
 import about from '@/views/about'
+import diary from '@/views/diary'
 Vue.use(VueRouter);
 
 const routes = [
@@ -27,6 +29,16 @@ const routes = [
       path: '/about',
       name: 'about',
       component: about
+    },
+    {
+      path: '/diary',
+      name: 'diary',
+      component: diary
+    },
+    {
+      path: '/diary/:id',
+      name: 'diaryItem',
+      component: diaryItem
     },
   
     

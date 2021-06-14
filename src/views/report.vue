@@ -1,5 +1,15 @@
 <template>
     <v-container fluid grid-list-md>
+        <v-layout wrap style="justify-content: end;display: contents;">
+            <v-card-actions>
+                <v-spacer />
+            <v-date-picker
+            v-model="picker"
+            :landscape="true"
+            type="date"
+            ></v-date-picker>
+            </v-card-actions>
+        </v-layout>
         <v-layout wrap style="display:flex;">
             <v-flex xs12 sm6 md3 v-for="i,key in themeList" :key="i.theme">
                 <router-link :to="defaultRoute+key+'?theme='+i.theme">
@@ -27,6 +37,7 @@
         },
         data() {
             return {
+                picker: null,
                 defaultRoute: '/report/',
                 status: null,
                 result: null,

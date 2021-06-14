@@ -57,6 +57,7 @@ export default {
               {tab: '전자제품', route:"/category"},
               {tab: '생활용품', route:"/product1"},
               {tab: '주방용품',route:"/product2"},
+              {tab: '랫서의 일기',route:"/diary"},
               ],
     }
   }

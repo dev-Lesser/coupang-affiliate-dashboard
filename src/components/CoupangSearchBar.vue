@@ -12,6 +12,7 @@
                 </v-card-subtitle>
                 <v-card-subtitle>
                     추천 키워드 들입니다.<br/>
+                    <v-divider class="my-2"/>
                     <v-chip class="ma-1" small dark label v-for="i,key in randomData" :key="key">#{{ i }}</v-chip>
                 </v-card-subtitle>
             </v-card>
