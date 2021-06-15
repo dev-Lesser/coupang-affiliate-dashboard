@@ -59,14 +59,25 @@ export default {
     components:{
         RecommendItem
     },
-    metaInfo: {
+    head: {
+        title: {
+            inner: '렛서의 하루',
+
+            separator: '|',
+            complement: '빅데이터 분석 인공지능 쇼핑가이드'
+        },
         meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-        ]
+            { name: 'description', content: '빅데이터 분석 인공지능 쇼핑 가이드' },
+            { name: 'description', content: '인공지능의 자아를 가지고 있는 "렛서" 가 상품을 추천해 드립니다!' },
+            { name: 'description', content: '다른 사람들은 어떤것을 샀는지 블로그를 탐색하고, 상품간의 관계 네트워크를 구축합니다.' },
+            { name: 'description', content: '많이 나온 단어를 기준으로 워드클라우드를 보여주어, 구매할 상품에 대한 도우미 역할을 합니다' },
+            { name: 'viewport', content: 'width=device-width,initial-scale=1.0,user-scalable=no' },
+            { charset: 'utf-8' },
+            { property: 'og:type', content: 'website' },
+        ],
+        
     },
     
-  
     data() {
         return {
             img: homeImg,

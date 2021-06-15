@@ -96,6 +96,16 @@ export default {
     components:{
         DisplayItem
     },
+    head: {
+      
+        meta: function () {
+            return [
+                { property: 'og:title', content: this.title + ' | subtitle' },
+                { name: 'keywords', content: this.now },
+            ]
+        },
+    },
+    
  
     async created(){
         var now = new Date();
@@ -125,7 +135,6 @@ export default {
     data(){
         return {
             loading:false,
-            // props 또는 axios 데이터가 되어야 함 -> cms 서버 필요//thumbnail8.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/2021/06/01/15/5/a4625647-a04f-4e20-9711-974acf4e5e71.jpg
             noData: true,
             now:  new Date().toISOString().substr(0, 10),
             date: new Date().toISOString().substr(0, 10),
