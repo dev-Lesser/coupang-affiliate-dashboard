@@ -9,7 +9,8 @@ export default new Vuex.Store({
     analysisData: null,
     themeList: null,
     imgList: [],
-    selectedDate: new Date().toISOString().substr(0, 10),
+    selectedDate: null,
+    bestItems: null
   },
   mutations: {},
   actions: {},

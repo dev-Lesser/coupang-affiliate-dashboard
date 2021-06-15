@@ -56,7 +56,6 @@
         </v-layout>
         <v-layout>
             <v-card-title>{{selectedDate}} 분석보고서 일람</v-card-title>
-            
         </v-layout>
         <v-divider/>
         <v-layout wrap style="display:flex;">
@@ -65,9 +64,15 @@
                     <v-card class="ma-3">
                         <v-img :src="imageList[key]" :aspect-ratio="3"/>
                         <v-layout wrap >
-                            <div>
+                            <div style="width:90%;">
                                 <v-card-title>{{i.theme}}</v-card-title>
-                                <v-card-subtitle><v-chip small class="ma-1" outlined >{{selectedDate}} </v-chip>키워드 분석보고서</v-card-subtitle>
+                                <v-card-subtitle><v-chip small class="ma-1" outlined >{{selectedDate}} </v-chip>키워드 분석보고서
+                                <v-progress-circular
+                                    indeterminate
+                                    color="indigo"
+                                    v-if="loading"
+                                    ></v-progress-circular>
+                                </v-card-subtitle>
                             </div>
                         </v-layout>
                     </v-card>
@@ -85,19 +90,26 @@
         },
         data() {
             return {
+                loading:false,
                 picker: null,
                 defaultRoute: '/report/',
                 status: null,
                 result: null,
-                date: new Date().toISOString().substr(0, 10),
-                maxDate: new Date().toISOString().substr(0, 10),
+                date: null,
+                maxDate: null,
                 minDate: new Date(2021,4,29).toISOString().substr(0, 10),
                 menu: false,
                 
             }
         },
         async created(){
+            this.scrollToTop()
+            var now = new Date();
+            var yesterday = new Date();
+            yesterday.setDate(now.getDate() - 1);
             
+            this.maxDate = yesterday.toISOString().substr(0, 10)
+            this.date = this.maxDate
         },
 
         computed:{
@@ -115,11 +127,17 @@
             scrollToTop() {
                 window.scrollTo(0,0);
             },
+            delayTime(){
+                this.loading=false;
+            },
             saveDate(val){
                 // this.date=val;
+                this.loading=true;
                 this.$store.state.selectedDate = val;
 
                 this.menu = false;
+                setTimeout(this.delayTime, 500); 
+
 
             }
         }

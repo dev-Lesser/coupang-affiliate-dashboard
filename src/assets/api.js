@@ -8,8 +8,6 @@ export const save_ip = async () => {
   };
 
   export const getTheme = async () => {
-    // var credentials = btoa(username + ':' + password);
-    // var basicAuth = 'Basic ' + credentials;
     const url = BASE_URL + 'theme'
     const res = await axios.get(url);
     if (res.status==200){
@@ -20,8 +18,6 @@ export const save_ip = async () => {
 }
 
 export const getAllData = async (theme, date) => {
-    // var credentials = btoa(username + ':' + password);
-    // var basicAuth = 'Basic ' + credentials;
     const url = BASE_URL + `data?theme=${theme}&date=${date}`
     const res = await axios.get(url);
     if (res.status==200){
@@ -29,4 +25,14 @@ export const getAllData = async (theme, date) => {
   
     }
     return [false, null]
+}
+
+export const get_best_data = async (date) => {
+  const url = BASE_URL + `best?date=${date}`
+  const res = await axios.get(url);
+  if (res.status==200){
+    return [true, res.data]
+
+  }
+  return [false, null]
 }

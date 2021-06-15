@@ -1,5 +1,31 @@
 <template>
-    <v-container fluid grid-list-md>
+
+    <v-container fluid grid-list-md v-if="noData">
+        <v-layout wrap style="display:flex;justify-content:center;">
+            <v-flex xs12 sm10 md10 >
+                <v-card>
+                    <v-card-subtitle>
+                    <v-btn :to="beforePage" small dark><v-icon small>mdi-arrow-left</v-icon>목록으로</v-btn>
+                    </v-card-subtitle>
+                    <v-card-actions>
+                        
+                        <v-card-title>
+                            <v-chip class="ma-2" label dark> #{{ theme }}</v-chip> 👻 렛서의 분석! 
+                            
+                        </v-card-title>
+                        <v-spacer/>
+                        <v-card-subtitle>분석일자 : {{$route.query.date}}</v-card-subtitle>
+                    </v-card-actions>
+                    <v-divider />
+                    <v-card-subtitle>
+                        아직 분석 중입니다.
+                        <v-divider />
+                    </v-card-subtitle>
+                </v-card>
+            </v-flex>
+        </v-layout>
+    </v-container>
+    <v-container fluid grid-list-md v-else>
         <v-layout wrap style="display:flex;justify-content:center;">
             <v-flex xs12 sm10 md10 >
                 <v-card>
@@ -304,7 +330,6 @@ export default {
             
             this.productsFirst = this.products.slice(0,6);
             this.productsSecond = this.products.slice(6,);
-            console.log(this.productsFirst, this.productsSecond)
             for(var i of this.keyword){
                 this.words.push([i.word, i.num])
                 

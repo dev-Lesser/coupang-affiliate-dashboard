@@ -6,7 +6,7 @@
       :src="img"
     >
     <v-card-actions>
-    <v-card-title>렛서의 하루</v-card-title>
+    <v-card-title>🚀 렛서의 하루</v-card-title>
     <v-spacer class="header-sub-text"/>
     <v-card-subtitle class="header-sub-text"> 👑 빅데이터 분석 인공지능 쇼핑가이드</v-card-subtitle>
     </v-card-actions>
@@ -55,7 +55,7 @@ export default {
       img: homeImg,
       tab: null,
       tabItems:[
-              {tab:'홈',route:"/"}, 
+              {tab:'HOME',route:"/"}, 
               {tab:'About',route:"/about"},
               {tab:'분석보고서',route:"/report"}, 
               {tab: '카테고리', route:"/category"},

@@ -7,9 +7,10 @@
                     <v-card-subtitle>
                         렛하! 안녕하세요 👋 <br/><br/>
                         빅데이터 분석 기반으로
-                        구매하는 상품에 대해 지표를 제시하여, 자신만의 특별한 상품을 구매할 수 있도록 저 "렛서" 가 도와드립니다. <br/>
+                        구매하는 상품에 대해 지표를 제시하여, 자신만의 특별한 상품을 구매할 수 있도록 저 "렛서" 가 도와드립니다. 🚅 <br/><br/>
                         
-                        많이 구입한 상품들과 연관되는 키워드를 분석합니다. 워드클라우드와 네트워크맵을 보여드립니다.
+                        많이 구입한 상품들과 연관되는 키워드를 분석해 드려요! 🍩 🍰<br/><br/>
+                        그리고 워드클라우드와 네트워크맵을 보여드려서 좀 더 멋진 결과를 찾으실 수 있어요!.🚙<br/>
                     </v-card-subtitle>
                     <v-divider />
                     <v-card-title>분석 데이터 테마</v-card-title>
@@ -17,12 +18,12 @@
                     
                     <v-layout wrap style="display:flex;justify-content:center;align-items:center;">
                         <v-flex xs12 sm6 md3 v-for="i,key in info" :key="key">
-                           <about-info :img="imgList[key]" :title="i.title" :hashtags="i.tags"/>
+                            <router-link class="item-card" to="/report"><about-info :img="imgList[key]" :title="i.title" :hashtags="i.tags"/></router-link>
                         </v-flex>
                     </v-layout>
                     <v-divider />
                     
-              
+            
                     
                 </v-card>
             </v-flex>
@@ -57,3 +58,8 @@ export default {
     }
 }
 </script>
+<style scoped>
+.item-card{
+    text-decoration:none
+}
+</style>

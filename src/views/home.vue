@@ -4,9 +4,9 @@
             
             <v-flex xs12 sm10 md10>
                 
-                <v-card >
+                <v-card color="blue-grey darken-2" dark >
                     <v-card-title>현재 진행중인 이벤트/프로모션</v-card-title>
-                    <v-card-subtitle>**파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있음</v-card-subtitle>
+                    <v-card-subtitle style="font-size: 12px;">**파트너스 활동을 통해 일정액의 수수료를 제공받을 수 있음</v-card-subtitle>
                     <v-divider/>
                 </v-card>
                 <v-card class="overflow-x-auto"  style="display:flex;">
@@ -59,13 +59,17 @@ export default {
     components:{
         RecommendItem
     },
+    metaInfo: {
+        meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+        ]
+    },
     
   
     data() {
         return {
             img: homeImg,
-            result: [],
-            words: []
 
         }
         
