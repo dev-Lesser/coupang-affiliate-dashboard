@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = `http://localhost:8000/api/v1.0/`
+const BASE_URL = `https://coupang-affiliate-server.herokuapp.com/api/v1.0/`
 
 export const save_ip = async () => {
     const res = await axios.get("https://www.cloudflare.com/cdn-cgi/trace");

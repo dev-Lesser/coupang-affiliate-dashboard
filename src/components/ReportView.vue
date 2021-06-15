@@ -13,7 +13,7 @@
                             
                         </v-card-title>
                         <v-spacer/>
-                        <v-card-subtitle>작성일자 : {{$route.query.date}}</v-card-subtitle>
+                        <v-card-subtitle>분석일자 : {{$route.query.date}}</v-card-subtitle>
                     </v-card-actions>
                     <v-divider />
                     <v-card-subtitle>
@@ -53,7 +53,7 @@
                     </v-card-subtitle>
                     <v-card-subtitle v-else>
                         <v-card-subtitle>
-                        먼저 많이 언급된 단어부터 볼까요~
+                        먼저 많이 언급된 단어부터 볼까요~ <v-chip class="ma-2" small outlined> #{{ theme }}</v-chip> 
                         </v-card-subtitle>
                         <v-layout wrap>
                             <v-flex xs12 md6 sm6>
@@ -62,7 +62,11 @@
                                     <v-card-actions v-if="key<5" >
                                         <v-chip class="ma-1" color="primary"  outlined>
                                             {{ i[0]}}
-                                        </v-chip> <v-chip class="ma-1" small outlined>{{ i[1]}}</v-chip>번 으로 {{key+1}} 위 입니다!! {{ emoji[Math.floor(Math.random() * (emoji.length))]}}
+                                        </v-chip> <v-chip class="ma-1" small outlined>{{ i[1]}}</v-chip>
+                                        <div class="mobile-description">번 으로 </div>
+                                        <div >{{key+1}} 위 </div>
+                                        <div class="mobile-description">입니다!! </div>
+                                        {{ emoji[Math.floor(Math.random() * (emoji.length))]}}
                                     </v-card-actions>
                                 </div>  
                             </v-flex>
@@ -83,7 +87,7 @@
                         💎💎 분석된 키워드를 바탕으로 저 "렛서"가 추천하는 상품은요~ 💎💎
                         </v-card-subtitle>
                         <v-layout wrap style="justify-content:center;display:flex;">
-                            <v-flex xs6 sm4 md2 v-for="i,key in items" :key="key">
+                            <v-flex xs6 sm4 md2 v-for="i,key in productsFirst" :key="key">
                                 <display-item :item="i"/>
                             </v-flex>
                         </v-layout>
@@ -94,7 +98,7 @@
                     <!-- bigram trigram 부분 레이아웃 -->
                     <v-card-subtitle class="" style="justify-content:center;">
                         <v-card-subtitle>
-                        그 다음은 어떤 단어들이 있을까요? 🤔
+                        그 다음은 어떤 단어들이 있을까요? 🤔 <v-chip class="ma-2" small outlined> #{{ theme }}</v-chip>
                         </v-card-subtitle>
                         <v-layout wrap>
                             <v-flex xs12 sm6 md6>
@@ -102,7 +106,11 @@
                                     <v-card-actions v-if="key<5" >
                                         <v-chip class="ma-1" color="blue-grey"  outlined>
                                             {{ i.word.split('|')[0]}}{{ i.word.split('|')[1]}}
-                                        </v-chip> <v-chip class="ma-1" small outlined>{{ i.num}}</v-chip>번 으로 {{key+1}} 위 입니다!! {{ emoji[Math.floor(Math.random() * (emoji.length))]}}
+                                        </v-chip> <v-chip class="ma-1" small outlined>{{ i.num}}</v-chip>
+                                        <div class="mobile-description">번 으로 </div>
+                                        <div >{{key+1}} 위 </div>
+                                        <div class="mobile-description">입니다!! </div>
+                                        {{ emoji[Math.floor(Math.random() * (emoji.length))]}}
                                     </v-card-actions>
                                 </div>
                             </v-flex>
@@ -111,7 +119,11 @@
                                     <v-card-actions v-if="key<5" >
                                         <v-chip class="ma-1" color="blue-grey" outlined>
                                             {{ i.word.split('|')[0]}}{{ i.word.split('|')[1]}}{{ i.word.split('|')[2]}} 
-                                        </v-chip> <v-chip class="ma-1" small outlined>{{ i.num}}</v-chip>번 으로 {{key+1}} 위 입니다!!{{ emoji[Math.floor(Math.random() * (emoji.length))]}}
+                                        </v-chip> <v-chip class="ma-1" small outlined>{{ i.num}}</v-chip>
+                                        <div class="mobile-description">번 으로</div>
+                                        <div > {{key+1}} 위</div>
+                                        <div class="mobile-description">입니다!!</div>
+                                        {{ emoji[Math.floor(Math.random() * (emoji.length))]}}
                                     </v-card-actions>
                                 </div>
                             </v-flex>
@@ -119,10 +131,10 @@
                     </v-card-subtitle>
                     <v-divider />
                     <v-card-subtitle>
-                        마찬가지로 추천드리자면~~ 😍
+                        마찬가지로 추천드리자면~~ 😍 <v-chip class="ma-2" small outlined> #{{ theme }}</v-chip>
                         </v-card-subtitle>
                         <v-layout wrap style="justify-content:center;display:flex;">
-                            <v-flex xs6 sm4 md2 v-for="i,key in items" :key="key">
+                            <v-flex xs6 sm4 md2 v-for="i,key in productsSecond" :key="key">
                                 <display-item :item="i"/>
                             </v-flex>
                         </v-layout>
@@ -270,12 +282,9 @@ export default {
             emoji:['😀','😜','😝','😁','😍','😸','🙉','🤩'],
             filterBigramData:[],
             filterTrigramData:[],
-            items:[
-                {"price":10000,"label": "구르메스 선물 케이크 티라미수, 인절미, 400g, 1","link":"https://coupa.ng/b1zwRm","img":"https://thumbnail12.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/bb6b/3e094589a665faeb33973ee61e28a331a332325c837242edcb42b5edc213.jpg"},
-                {"price":30000,"label":"부케가르니 나드 샴푸, 1000ml, 2개" ,"link":"https://coupa.ng/b1zxM4",'img':"https://t5a.coupangcdn.com/thumbnails/remote/212x212ex/image/product/image/vendoritem/2019/09/05/4428105221/24558263-c24b-43ff-90a5-b381db810cd5.jpg"},
-                {"price":30000,"label":"물, 1000ml, 2개" ,"link":"https://coupa.ng/b1CzZC",'img':"//thumbnail9.coupangcdn.com/thumbnails/remote/492x492ex/image/product/image/vendoritem/2019/03/04/3213757282/456ca43b-ffe6-46ef-b793-d787986a9e52.jpg"},
-                {"price":30000,"label":"필라  티셔츠" ,"link":"https://coupa.ng/b1CDhL",'img':"//thumbnail7.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/164476685713491-fa7f1a75-d2dd-4058-b647-eda91ce58460.jpg"},
-                ],
+            productsFirst:[],
+            productsSecond:[],
+        
             randomItems: [],
             keywordList: [],
         }
@@ -291,6 +300,11 @@ export default {
             this.keyword = res.data.keyword;
             this.bigram = res.data.bigram;
             this.trigram = res.data.trigram
+            this.products = res.product;
+            
+            this.productsFirst = this.products.slice(0,6);
+            this.productsSecond = this.products.slice(6,);
+            console.log(this.productsFirst, this.productsSecond)
             for(var i of this.keyword){
                 this.words.push([i.word, i.num])
                 
@@ -338,4 +352,10 @@ export default {
 .keyword-all-chips{
     text-decoration:none
 }
+@media screen and (max-width: 500px){
+    .mobile-description{
+        display:none;
+    }
+}
+
 </style>

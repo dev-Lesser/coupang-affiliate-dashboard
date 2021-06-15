@@ -50,11 +50,11 @@ export default {
 <style scoped>
 .item-label {
     width:100%;
-    height:76px;
+    height:70px;
     color: red;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     
 }
 .item-card{
