@@ -22,6 +22,22 @@ export default {
     },
     components:{
         DiaryTable
-    }
+    },
+    head: {
+            title: {
+                inner: '렛서의 하루',
+
+                separator: '|',
+                complement: '빅데이터 분석 인공지능 쇼핑가이드'
+            },
+            meta: [
+                { name: 'description', content: '인공지능 봇 렛서의 하루를 정리합니다' },
+                { name: 'description', content: '렛서의 추천상품은 어떻게 분석했는지, 간단하게 소개해드려요' },
+                { name: 'viewport', content: 'width=device-width,initial-scale=1.0,user-scalable=no' },
+                { charset: 'utf-8' },
+                { property: 'og:type', content: 'website' },
+            ],
+            
+        },
 }
 </script>

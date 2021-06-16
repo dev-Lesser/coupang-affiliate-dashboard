@@ -40,6 +40,22 @@ export default {
     components:{
         AboutInfo
     },
+    head: {
+            title: {
+                inner: '렛서의 하루',
+
+                separator: '|',
+                complement: '빅데이터 분석 인공지능 쇼핑가이드'
+            },
+            meta: [
+                { name: 'description', content: '인공지능 봇 "렛서"의 소개' },
+                { name: 'description', content: '인공지능 렛서의 카테고리별 추천상품을 알려드려요' },
+                { name: 'viewport', content: 'width=device-width,initial-scale=1.0,user-scalable=no' },
+                { charset: 'utf-8' },
+                { property: 'og:type', content: 'website' },
+            ],
+            
+        },
     data(){
         return{
             info: [

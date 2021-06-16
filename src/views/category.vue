@@ -62,6 +62,21 @@
             return {
                 tab: null,
             }
-        }
+        },
+        head: {
+            title: {
+                inner: '렛서의 하루',
+
+                separator: '|',
+                complement: '빅데이터 분석 인공지능 쇼핑가이드'
+            },
+            meta: [
+                { name: 'description', content: '쿠팡에서 카테고리별 베스트 아이템을 보여줍니다' },
+                { name: 'viewport', content: 'width=device-width,initial-scale=1.0,user-scalable=no' },
+                { charset: 'utf-8' },
+                { property: 'og:type', content: 'website' },
+            ],
+            
+        },
     }
 </script>

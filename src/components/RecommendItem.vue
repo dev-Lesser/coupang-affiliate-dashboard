@@ -110,12 +110,20 @@ export default {
     async created(){
         var now = new Date();
         var yesterday = new Date();
-        yesterday.setDate(now.getDate() - 1);
+        // yesterday.setDate(now.getDate());
+        // console.log(now, yesterday)
+        const utc = 
+            now.getTime() + 
+            (now.getTimezoneOffset() * 60 * 1000);
+
+        // 3. UTC to KST (UTC + 9시간)
+        const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+        now =  new Date(utc + (KR_TIME_DIFF));
         
         now = yesterday.toISOString().substr(0, 10)
         this.$store.state.selectedDate = now
-
         console.log(now)
+
         this.$store.state.bestItems=null
         if (!this.$store.state.bestItems){
             this.loading=true;
