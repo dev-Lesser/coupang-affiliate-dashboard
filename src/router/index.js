@@ -53,12 +53,17 @@ const routes = [
       name: 'categoryItem',
       component: categoryItem
     },
+    {
+      path: '*',
+      name: 'error',
+      component: home
+    }
   
     
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes
 });
 export default router;
